@@ -1,6 +1,11 @@
 $(document).ready(function () {
     $("form").submit(function(event) {
         var pass = true;
+        console.log($('#disclaimer').is(':checked'));
+        if (!$('#disclaimer').is(':checked')) {
+            alert('Patient must be counseled before submitting prescriptions to pharmacy');
+            event.preventDefault();
+        }
         if (checkReplacementPrescriptions() === false) {
             alert("Duplicate prescriptions can not be submitted.");
             event.preventDefault();
