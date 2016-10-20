@@ -549,6 +549,7 @@ $(document).ready(function () {
                 $('#years').css('border', '');
                 $('#months').css('border', '');
                 $('#age').css('border', '');
+                $('input:radio[name=dobCertainty]')[0].checked = true;
             }
             else {
                 $('#age').css('border-color', 'red');

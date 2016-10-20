@@ -32,6 +32,7 @@ public class IndexViewModelPost {
     private Date age;
     private String ageClassification;
     private String sex;
+    private String dobCertainty;
     public Boolean deletePhoto; //flag to determine if user would like to delete image file
     //begin vitals
     private Integer bloodPressureSystolic;
@@ -109,6 +110,14 @@ public class IndexViewModelPost {
 
     public void setAge(Date age) {
         this.age = age;
+    }
+
+    public String getDobCertainty() {
+        return dobCertainty;
+    }
+
+    public void setDobCertainty(String dobCertainty) {
+        this.dobCertainty = dobCertainty;
     }
 
     public String getSex() {

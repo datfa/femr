@@ -40,6 +40,8 @@ public class Patient implements IPatient {
     private String lastName;
     @Column(name = "age")
     private Date age;
+    @Column(name = "dobCertainty", nullable = true)
+    private String dobCertainty;
     @Column(name = "sex", nullable = true)
     private String sex;
     @Column(name = "address", nullable = true)
@@ -102,6 +104,16 @@ public class Patient implements IPatient {
     @Override
     public void setAge(Date age) {
         this.age = age;
+    }
+
+    @Override
+    public String getDobCertainty() {
+        return dobCertainty;
+    }
+
+    @Override
+    public void setDobCertainty(String dobCertainty) {
+        this.dobCertainty = dobCertainty;
     }
 
     @Override

@@ -146,7 +146,8 @@ public class MedicationRepository implements IMedicationRepository {
     public IMedication createNewMedication (String medicationName, List<IMedicationGenericStrength> medicationGenericStrengths, IConceptMedicationForm conceptMedicationForm){
         IMedication medication = null;
         try {
-        if (medicationName == null || medicationGenericStrengths == null || conceptMedicationForm == null) {
+        //if (medicationName == null || medicationGenericStrengths == null || conceptMedicationForm == null) {
+        if (medicationName == null) {
             return null;
         }
 

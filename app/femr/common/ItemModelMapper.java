@@ -165,6 +165,7 @@ public class ItemModelMapper implements IItemModelMapper {
                                                 String address,
                                                 int userId,
                                                 Date age,
+                                                String dobCertainty,
                                                 String sex,
                                                 Integer weeksPregnant,
                                                 Integer heightFeet,
@@ -194,11 +195,12 @@ public class ItemModelMapper implements IItemModelMapper {
         //optional fields
         if (StringUtils.isNotNullOrWhiteSpace(address))
             patientItem.setAddress(address);
+        if (StringUtils.isNotNullOrWhiteSpace(dobCertainty))
+            patientItem.setDobCertainty(dobCertainty);
         if (StringUtils.isNotNullOrWhiteSpace(sex))
             patientItem.setSex(sex);
         if (age != null) {
-
-            patientItem.setAge(dateUtils.getAge(age));//age (int)
+            patientItem.setAge(dateUtils.getAge(age) + " " + ( dobCertainty == null ? "Uncertain" : dobCertainty) );//age (int)
             patientItem.setBirth(age);//date of birth(date)
             patientItem.setFriendlyDateOfBirth(dateUtils.getFriendlyDate(age));
 

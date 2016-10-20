@@ -44,6 +44,10 @@ public interface IPatient {
 
     void setAge(Date age);
 
+    String getDobCertainty();
+
+    void setDobCertainty(String dobCertainty);
+
     String getSex();
 
     void setSex(String sex);

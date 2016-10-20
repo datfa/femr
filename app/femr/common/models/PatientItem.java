@@ -31,6 +31,8 @@ public class PatientItem {
     private Integer monthsOld;
     private Date birth;
     private String friendlyDateOfBirth;
+
+    private String dobCertainty;
     private String sex;
     private Integer photoId;
     private String pathToPhoto;
@@ -106,6 +108,14 @@ public class PatientItem {
 
     public void setBirth(Date birth) {
         this.birth = birth;
+    }
+
+    public String getDobCertainty() {
+        return dobCertainty;
+    }
+
+    public void setDobCertainty(String dobCertainty) {
+        this.dobCertainty = dobCertainty;
     }
 
     public String getSex() {
