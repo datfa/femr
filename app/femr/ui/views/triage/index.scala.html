@@ -64,8 +64,7 @@
                     @inputDate("Birth Date", "age", if(viewModel != null) viewModel.getPatient.getBirth else null)
                     <div class="generalInfoInput">
                         <div id="classificationRadioWrap">
-                            <label><input type="radio" name="dobCertainty" value="Certain" /> Certain </label>
-                            <label><input type="radio" name="dobCertainty" value="Uncertain" /> Uncertain </label>
+                            <input type="hidden" name="dobCertainty" id="dobCertainty" value="Uncertain" />
                         </div>
                     </div>
                     <span class="orSpan">OR</span>
