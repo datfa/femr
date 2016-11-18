@@ -19,8 +19,11 @@
 package femr.util.filters
 
 import femr.ui.controllers.routes
+//import femr.ui.controllers.ResearchController
+
 import play.Play
 import play.api.mvc._
+
 import scala.concurrent.Future
 
 //As of version 2.4, play framework recommends using Scala to implement HttpFilters.
@@ -55,6 +58,7 @@ class ResearchFilter extends Filter {
     ) {
 
       Future.successful(Results.Redirect(routes.ResearchController.indexGet()))
+      //Future.successful(Results.Redirect(ResearchController.indexGet()))
     } else {
 
       f(rh)

@@ -18,6 +18,7 @@
 */
 package femr.data;
 
+import femr.common.models.PatientItem;
 import femr.data.models.core.*;
 import org.joda.time.DateTime;
 import java.util.Date;
@@ -132,7 +133,7 @@ public interface IDataModelMapper {
      */
     IMissionTrip createMissionTrip(Date startDate, Date endDate, IMissionCity missionCity, IMissionTeam missionTeam);
 
-    /**
+     /**
      * Generate and provide an implementation of IPatient.
      *
      * @param userID    id of the user creating the patient, not null
@@ -145,7 +146,17 @@ public interface IDataModelMapper {
      * @param photoID   the id of a photo of the patient, may be null
      * @return an implementation of IPatient or null if processing fails
      */
-    IPatient createPatient(int userID, String firstName, String lastName, Date birthday, String sex, String address, String city, Integer photoID);
+
+//    IPatient createPatient(int userID, String firstName, String lastName, Date birthday, String sex, String address, String city, Integer photoID);
+
+    /**
+     * Generate and provide an implementation of IPatient.
+     *
+     * @param patient    id of the user creating the patient, not null
+     * @return an implementation of IPatient or null if processing fails
+     */
+
+    IPatient createPatient(PatientItem patient);
 
     /**
      * Generate and provide an implementation of IPatientEncounter.

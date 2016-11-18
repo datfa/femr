@@ -117,12 +117,8 @@ public class ItemModelMapper implements IItemModelMapper {
             return null;
         }
 
-        MissionItem missionItem = new MissionItem();
+        MissionItem missionItem = new MissionItem(missionTeam.getName(), missionTeam.getLocation(), missionTeam.getDescription(), missionTripItems);
 
-        missionItem.setTeamName(missionTeam.getName());
-        missionItem.setTeamLocation(missionTeam.getLocation());
-        missionItem.setTeamDescription(missionTeam.getDescription());
-        missionItem.setMissionTrips(missionTripItems);
 
         return missionItem;
     }

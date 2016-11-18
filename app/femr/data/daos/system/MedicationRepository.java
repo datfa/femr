@@ -13,6 +13,7 @@ import femr.data.models.mysql.concepts.ConceptMedicationForm;
 import femr.data.models.mysql.concepts.ConceptMedicationUnit;
 import femr.util.stringhelpers.StringUtils;
 import play.Logger;
+import femr.data.daos.Repository;
 
 import java.util.List;
 
@@ -177,6 +178,23 @@ public class MedicationRepository implements IMedicationRepository {
         List<? extends IMedication> medications = medicationQuery.findList();
 
         return medications;
+    }
+
+    @Override
+    public IMedication findOne(int medicationID) {
+        ExpressionList<Medication> medicationQuery = QueryProvider.getMedicationQuery()
+                .where()
+                .eq("id", medicationID);
+
+        IMedication medication = medicationQuery.findUnique();
+
+        return medication;
+    }
+
+    @Override
+    public void delete(IMedication medication) {
+        Repository<IMedication> rep =new Repository<>();
+        rep.delete(medication);
     }
 
 }

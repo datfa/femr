@@ -21,6 +21,7 @@ package femr.data;
 import com.avaje.ebean.Ebean;
 import com.google.inject.Inject;
 import femr.business.services.core.IEncounterService;
+import femr.common.models.PatientItem;
 import femr.data.models.core.*;
 import femr.util.calculations.dateUtils;
 import femr.util.stringhelpers.StringUtils;
@@ -347,29 +348,56 @@ public class DataModelMapper implements IDataModelMapper{
         return missionTrip;
     }
 
+//     /**
+//     * {@inheritDoc}
+//     */
+//    @Override
+//    public IPatient createPatient(int userID, String firstName, String lastName, Date birthday, String sex, String address, String city, Integer photoID) {
+//
+//        if (userID < 0 || StringUtils.isNullOrWhiteSpace(firstName) || StringUtils.isNullOrWhiteSpace(lastName)) {
+//
+//            return null;
+//        }
+//
+//        IPatient patient = patientProvider.get();
+//
+//        patient.setUserId(userID);
+//        patient.setFirstName(firstName);
+//        patient.setLastName(lastName);
+//        if (birthday != null)
+//            patient.setAge(birthday);
+//        patient.setSex(sex);
+//        patient.setAddress(address);
+//        patient.setCity(city);
+//        if (photoID != null)
+//            patient.setPhoto(Ebean.getReference(photoProvider.get().getClass(), photoID));
+//
+//        return patient;
+//    }
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public IPatient createPatient(int userID, String firstName, String lastName, Date birthday, String sex, String address, String city, Integer photoID) {
+    public IPatient createPatient(PatientItem patientItem) {
 
-        if (userID < 0 || StringUtils.isNullOrWhiteSpace(firstName) || StringUtils.isNullOrWhiteSpace(lastName)) {
+        if (patientItem.getUserId() < 0 || StringUtils.isNullOrWhiteSpace(patientItem.getFirstName()) || StringUtils.isNullOrWhiteSpace(patientItem.getLastName())) {
 
             return null;
         }
 
         IPatient patient = patientProvider.get();
 
-        patient.setUserId(userID);
-        patient.setFirstName(firstName);
-        patient.setLastName(lastName);
-        if (birthday != null)
-            patient.setAge(birthday);
-        patient.setSex(sex);
-        patient.setAddress(address);
-        patient.setCity(city);
-        if (photoID != null)
-            patient.setPhoto(Ebean.getReference(photoProvider.get().getClass(), photoID));
+        patient.setUserId(patientItem.getUserId());
+        patient.setFirstName(patientItem.getFirstName());
+        patient.setLastName(patientItem.getLastName());
+        if (patientItem.getBirth() != null)
+            patient.setAge(patientItem.getBirth());
+        patient.setSex(patientItem.getSex());
+        patient.setAddress(patientItem.getAddress());
+        patient.setCity(patientItem.getCity());
+        if (patientItem.getPhotoId() != null)
+            patient.setPhoto(Ebean.getReference(photoProvider.get().getClass(), patientItem.getPhotoId()));
 
         return patient;
     }
