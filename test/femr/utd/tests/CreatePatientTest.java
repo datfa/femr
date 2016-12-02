@@ -1,6 +1,11 @@
 package femr.utd.tests;
 
+import femr.common.models.PatientItem;
+import femr.data.DataModelMapper;
+import femr.data.models.core.IPatient;
+import femr.data.IDataModelMapper;
 import org.junit.Test;
+import com.google.inject.Inject;
 
 
 import static org.junit.Assert.*;
@@ -10,10 +15,19 @@ import static org.junit.Assert.*;
  */
 public class CreatePatientTest extends BaseTest {
 
+    private static IDataModelMapper dataModelMapper;
+
+    @Inject
+    public void setService(IDataModelMapper dataModelMapper) {
+        this.dataModelMapper = dataModelMapper;
+    }
+
     @Test
     public void testCreatePatient() throws Exception {
-        //IPatientBio newPatientBio = dataModelMapper.createPatientBio("Test Fname", "Test Lname", "Test Male", "Test Address", "Test City");
-        //IPatient newPatient = dataModelMapper.createPatient(patient.getUserId(), newPatientBio, patient.getBirth(), patient.getPhotoId());
+        PatientItem patient = new PatientItem();
+
+        IPatient newPatient = dataModelMapper.createPatient(patient);
+        assertNull(newPatient);
         assertTrue(true);
 
     }
